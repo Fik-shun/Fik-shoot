@@ -8,8 +8,7 @@ function Plane(scene) {
 	var modelLoader = new THREE.OBJLoader()
 
 	this.model;
-	this.height;
-	this.width;
+	this.planeBndBox;
 
 	modelLoader.load
 		( 
@@ -26,42 +25,49 @@ function Plane(scene) {
 				)
 
 				// rotating, scaling down the plane model
-				this.model.rotation.x = -Math.PI / 2;
+				this.model.rotation.x = Math.PI / 12;
+				this.model.position.z = -10;
+				this.model.scale.set(0.01, 0.01, 0.009);
 				
 				scene.add(this.model);
 
-				var planeBndBox = new THREE.Box3().setFromObject(this.model);
-				this.height = planeBndBox.getSize().y;
-				this.width = planeBndBox.getSize().x;
+				this.planeBndBox = new THREE.Box3().setFromObject(this.model);
 
 			}).bind(this)
 		);
 
 	
 	this.update = function() {
-		if (this.model)
-			this.model.position.y += 1;
+		this.model.position.z -= 1;
 	}
 
 	this.handleInput = function(keyMap, camera) {
-		if (keyMap[87] && this.model.position.y < camera.position.y + camera.top - this.height/2) {
-			this.model.position.y += 5;
+		
+		var vFOV = camera.fov * Math.PI / 180; 
+		var maxWidth = 2 * Math.tan( vFOV / 2 ) * (camera.position.z - this.model.position.z) * camera.aspect; 
+		var minDepth = Math.abs(this.model.position.x - camera.position.x) / (Math.tan( vFOV / 2 ) * camera.aspect); 
+
+		
+		if (keyMap[87] && this.model.position.z > camera.position.z - 30 ) {
+			this.model.position.z -= 0.2;
 		}
-		if (keyMap[83] && this.model.position.y > camera.position.y + camera.bottom + this.height/2) {
-			this.model.position.y -= 5;
+		if (keyMap[83] && this.model.position.z < camera.position.z - Math.max(5, minDepth + this.planeBndBox.getSize().z/2)) {
+			this.model.position.z += 0.2;
 		}
-		if (keyMap[68] && this.model.position.x < camera.right - this.width/2) {
-			this.model.position.x += 5;			
+		if (keyMap[68] && this.model.position.x < camera.position.x + (maxWidth - this.planeBndBox.getSize().x)/2) {
+			this.model.position.x += 0.2;			
 		}
-		if (keyMap[65] && this.model.position.x > camera.left + this.width/2) {
-			this.model.position.x -= 5;
+		if (keyMap[65] && this.model.position.x > camera.position.x - (maxWidth - this.planeBndBox.getSize().x)/2) {
+			this.model.position.x -= 0.2;
 		}
 	}
 
 	this.launchMissile = function() {
+
         var x = this.model.position.x;
-        var y = this.model.position.y + this.height/2;
-        const m = new Missile(scene, x, y);
+        var z = this.model.position.z - this.planeBndBox.getSize().z;
+
+        const m = new Missile(scene, x, z);
 
         return m;
 	}

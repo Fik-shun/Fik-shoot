@@ -3,10 +3,10 @@ function placeEnemies(scene) {
 
 	const theEnemies = [];
 
-	[...Array(5).keys()].map(y => {
+	[...Array(5).keys()].map(z => {
 
 		getRandomPositions().map(x => { 
-			const e = new Enemy(scene, 200*(x-4), 400*(y+1));
+			const e = new Enemy(scene, 2*(x-4), -200*(z+1));
 			theEnemies.push(e);
 		});
 	});

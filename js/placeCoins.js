@@ -2,10 +2,10 @@
 function placeCoins(scene) {
 
 	const theCoins = [];
-	[...Array(10).keys()].map(y => {
+	[...Array(10).keys()].map(z => {
 
 		getRandomPositions().map(x => { 
-			const c = new Coin(scene, 100*(x-7), 200*(y+1));
+			const c = new Coin(scene, (x-7), -100*(z+1));
 			theCoins.push(c);
 		});
 

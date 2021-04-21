@@ -1,10 +1,8 @@
 
-function Missile(scene, x, y) {
+function Missile(scene, x, z) {
 	
 	var modelLoader = new THREE.GLTFLoader()
 	this.model;
-	this.height;
-	this.width;
 
 	modelLoader.load
 		( 
@@ -13,23 +11,19 @@ function Missile(scene, x, y) {
 			{
 				this.model = obj.scene;
 
-				// this.model.rotation.x = Math.PI / 2;
-				this.model.rotation.y = -Math.PI;
+				this.model.rotation.x = -Math.PI/2;
 
-				this.model.position.set(x, y, -100);
-				this.model.scale.set(0.5,0.5,0.5);
+				this.model.position.set(x, -0.1, z);
+				this.model.scale.set(0.005,0.005,0.005);
 
 				scene.add(this.model);
-				var missileBndBox = new THREE.Box3().setFromObject(this.model);
-				this.height = missileBndBox.getSize().y;
-				this.width = missileBndBox.getSize().x;
 			}).bind(this)
 		)
 
 	this.update = function() {
-		if (this.model)
-			this.model.position.y += 10;
+		this.model.position.z -= 1.1;
 	}
+
 	this.destroy = function() {
 		scene.remove(this.model);
 	}
