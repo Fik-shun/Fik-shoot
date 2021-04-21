@@ -21,7 +21,7 @@ function Missile(scene, x, z) {
 		)
 
 	this.update = function() {
-		this.model.position.z -= 1.75;
+		this.model.position.z -= 2.1;
 	}
 
 	this.destroy = function() {
