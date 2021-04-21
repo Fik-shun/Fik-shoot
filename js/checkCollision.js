@@ -21,7 +21,7 @@ function checkCollision(thePlane, theCoins, theEnemies, theMissiles, score, heal
         var i = theEnemies.length;
         while (i--) {
             if (theEnemies[i]) {
-                enemyBB = new THREE.Box3().setFromObject(theCoins[i].model);
+                enemyBB = new THREE.Box3().setFromObject(theEnemies[i].model);
 
                 if (planeBB.intersectsBox(enemyBB)) {
                     health -= 1;
@@ -34,7 +34,7 @@ function checkCollision(thePlane, theCoins, theEnemies, theMissiles, score, heal
             var j = theMissiles.length;
             while (j--) {
                 if (theMissiles[j]) {
-                    missileBB = new THREE.Box3().setFromObject(theCoins[i].model);
+                    missileBB = new THREE.Box3().setFromObject(theMissiles[j].model);
                     if (missileBB.intersectsBox(enemyBB)) {
                         score += 2;
                         theEnemies[i].destroy();

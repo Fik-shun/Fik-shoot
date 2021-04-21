@@ -48,7 +48,7 @@ function SceneManager(canvas) {
         const aspectRatio = width / height;
         const fieldOfView = 30;
         const nearPlane = 0.1;
-        const farPlane = 10000; 
+        const farPlane = 3000; 
         const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
         
         camera.position.y = 0.5;
@@ -70,10 +70,7 @@ function SceneManager(canvas) {
 
     this.update = function() {
 
-        if (camera.position.z > -2700 && health > 0) {
-
-            // MOVING CAMERA AND PLANE FWD
-            camera.position.z -= 1;
+        if (camera.position.z > -2400 && health > 0) {
 
             for(let i=0; i<dynamicSubjects.length; i++)
                 if (dynamicSubjects[i].model) {
@@ -81,7 +78,9 @@ function SceneManager(canvas) {
                 }
 
 
-            [theCoins, theEnemies, theMissiles, score, health] = checkCollision(thePlane, theCoins, theEnemies, theMissiles, score, health)
+            [theCoins, theEnemies, theMissiles, score, health] = checkCollision(thePlane, theCoins, theEnemies, theMissiles, score, health);
+
+            theMissiles = deleteMissiles(theMissiles);
 
 
             // RENDERING
@@ -106,7 +105,7 @@ function SceneManager(canvas) {
 
             gameEnded = true;
             if (health > 0)
-                document.getElementById("gameover").innerHTML = "TIME UP"; 
+                document.getElementById("gameover").innerHTML = "GAME OVER"; 
             else
                 document.getElementById("gameover").innerHTML = "YOU LOST"; 
         }

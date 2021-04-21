@@ -38,27 +38,32 @@ function Plane(scene) {
 
 	
 	this.update = function() {
-		this.model.position.z -= 1;
+		// this.model.position.z -= 1;
 	}
 
 	this.handleInput = function(keyMap, camera) {
 		
-		var vFOV = camera.fov * Math.PI / 180; 
-		var maxWidth = 2 * Math.tan( vFOV / 2 ) * (camera.position.z - this.model.position.z) * camera.aspect; 
-		var minDepth = Math.abs(this.model.position.x - camera.position.x) / (Math.tan( vFOV / 2 ) * camera.aspect); 
-
-		
-		if (keyMap[87] && this.model.position.z > camera.position.z - 30 ) {
-			this.model.position.z -= 0.2;
+		if (keyMap[87]) {
+			if (keyMap[16]) {
+				this.model.position.z -= 1.5;
+				camera.position.z -= 1.5;
+			}
+			else {
+				this.model.position.z -= 1;
+				camera.position.z -= 1;
+			}
 		}
-		if (keyMap[83] && this.model.position.z < camera.position.z - Math.max(5, minDepth + this.planeBndBox.getSize().z/2)) {
-			this.model.position.z += 0.2;
+		if (keyMap[83] && this.model.position.z < -1) {
+			this.model.position.z += 1;
+			camera.position.z += 1;
 		}
-		if (keyMap[68] && this.model.position.x < camera.position.x + (maxWidth - this.planeBndBox.getSize().x)/2) {
+		if (keyMap[68] && this.model.position.x < 15) {
 			this.model.position.x += 0.2;			
+			camera.position.x += 0.2;
 		}
-		if (keyMap[65] && this.model.position.x > camera.position.x - (maxWidth - this.planeBndBox.getSize().x)/2) {
+		if (keyMap[65] && this.model.position.x > -15) {
 			this.model.position.x -= 0.2;
+			camera.position.x -= 0.2;
 		}
 	}
 

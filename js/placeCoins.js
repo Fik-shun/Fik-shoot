@@ -2,10 +2,10 @@
 function placeCoins(scene) {
 
 	const theCoins = [];
-	[...Array(10).keys()].map(z => {
+	[...Array(40).keys()].map(z => {
 
 		getRandomPositions().map(x => { 
-			const c = new Coin(scene, (x-7), -100*(z+1));
+			const c = new Coin(scene, (x-14), -60*(z+1));
 			theCoins.push(c);
 		});
 
@@ -15,9 +15,9 @@ function placeCoins(scene) {
 
 	function getRandomPositions() {
 
-		var noCoins = Math.floor((Math.random() * 6));	
+		var noCoins = 1 + Math.floor((Math.random() * 4));	
 		
-		var arr = [...Array(15).keys()];
+		var arr = [...Array(29).keys()];
 
 		for (let i = arr.length - 1; i > 0; i--) {
 		    

@@ -13,7 +13,7 @@ function Missile(scene, x, z) {
 
 				this.model.rotation.x = -Math.PI/2;
 
-				this.model.position.set(x, -0.1, z);
+				this.model.position.set(x, -0.05, z);
 				this.model.scale.set(0.005,0.005,0.005);
 
 				scene.add(this.model);
@@ -21,7 +21,7 @@ function Missile(scene, x, z) {
 		)
 
 	this.update = function() {
-		this.model.position.z -= 1.1;
+		this.model.position.z -= 1.75;
 	}
 
 	this.destroy = function() {
