@@ -2,7 +2,7 @@
 function Plane(scene) {
 	
 	const textureLoader = new THREE.TextureLoader()
-	var texMap = textureLoader.load("../../assets/textures/plane.png")
+	var texMap = textureLoader.load("../../Fik-shoot/assets/textures/plane.png")
 	var modelMaterial = new THREE.MeshBasicMaterial({ map: texMap})
 
 	var modelLoader = new THREE.OBJLoader()
