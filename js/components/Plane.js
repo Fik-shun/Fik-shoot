@@ -38,7 +38,7 @@ function Plane(scene) {
 
 	
 	this.update = function() {
-		// this.model.position.z -= 1;
+		this.model.position.z -= 0.4;
 	}
 
 	this.handleInput = function(keyMap, camera) {

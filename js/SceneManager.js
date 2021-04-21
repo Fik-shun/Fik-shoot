@@ -51,7 +51,7 @@ function SceneManager(canvas) {
         const farPlane = 3000; 
         const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
         
-        camera.position.y = 0.5;
+        camera.position.y = 0.65;
         return camera;
     }
 
@@ -71,6 +71,8 @@ function SceneManager(canvas) {
     this.update = function() {
 
         if (camera.position.z > -2400 && health > 0) {
+
+            camera.position.z -= 0.4;
 
             for(let i=0; i<dynamicSubjects.length; i++)
                 if (dynamicSubjects[i].model) {
