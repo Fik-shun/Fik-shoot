@@ -12,7 +12,7 @@ function Plane(scene) {
 
 	modelLoader.load
 		( 
-			"../../assets/models/plane.obj", 
+			"../../Fik-shoot/assets/models/plane.obj", 
 			(function(obj)
 			{
 				this.model = obj;

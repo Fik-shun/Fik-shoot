@@ -7,12 +7,12 @@ function Skybox(scene, height) {
 
 	var cubeMaterials = 
 	[
-		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../assets/textures/ulukai/corona_ft.png"), side: THREE.DoubleSide }),
-		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../assets/textures/ulukai/corona_bk.png"), side: THREE.DoubleSide }),
-		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../assets/textures/ulukai/corona_up.png"), side: THREE.DoubleSide }),
-		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../assets/textures/ulukai/corona_dn.png"), side: THREE.DoubleSide }),
-		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../assets/textures/ulukai/corona_rt.png"), side: THREE.DoubleSide }),
-		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../assets/textures/ulukai/corona_lf.png"), side: THREE.DoubleSide }),
+		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../Fik-shoot/assets/textures/ulukai/corona_ft.png"), side: THREE.DoubleSide }),
+		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../Fik-shoot/assets/textures/ulukai/corona_bk.png"), side: THREE.DoubleSide }),
+		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../Fik-shoot/assets/textures/ulukai/corona_up.png"), side: THREE.DoubleSide }),
+		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../Fik-shoot/assets/textures/ulukai/corona_dn.png"), side: THREE.DoubleSide }),
+		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../Fik-shoot/assets/textures/ulukai/corona_rt.png"), side: THREE.DoubleSide }),
+		new THREE.MeshBasicMaterial({ map: textureLoader.load("../../Fik-shoot/assets/textures/ulukai/corona_lf.png"), side: THREE.DoubleSide }),
 	]
 	var material = new THREE.MeshFaceMaterial(cubeMaterials)
 

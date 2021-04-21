@@ -6,7 +6,7 @@ function Enemy(scene, x, z) {
 
 	modelLoader.load
 		( 
-			"../../assets/models/enemy/enemy.gltf", 
+			"../../Fik-shoot/assets/models/enemy/enemy.gltf", 
 			(function(obj)
 			{
 				this.model = obj.scene;

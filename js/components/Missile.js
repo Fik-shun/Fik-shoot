@@ -6,7 +6,7 @@ function Missile(scene, x, z) {
 
 	modelLoader.load
 		( 
-			"../../assets/models/missile/missile.gltf", 
+			"../../Fik-shoot/assets/models/missile/missile.gltf", 
 			(function(obj)
 			{
 				this.model = obj.scene;
