@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Space Shooter</title>
+		<link rel="stylesheet" href="css/style.css"> 
+	</head>
+
+	<body>
+		<div id="scoreboard">HEALTH: 3 &emsp; SCORE: 0</div>
+		<div id="gameover"></div>
+		<canvas id="canvas"></canvas>
+		
+	    <!-- CDN Link to Three.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.js"></script>
+		<script src="https://unpkg.com/three@0.87.0/examples/js/loaders/OBJLoader.js"> </script>
+		<script src="https://unpkg.com/three@0.87.0/examples/js/loaders/GLTFLoader.js"> </script>
+		
+
+	    <!-- Link all other js files below -->
+	    <script src="js/components/Coin.js"></script>
+	    <script src="js/components/placeCoins.js"></script>
+	    <script src="js/components/Missile.js"></script>
+	    <script src="js/components/Enemy.js"></script>
+	    <script src="js/components/placeEnemies.js"></script>
+	    <script src="js/components/Background.js"></script>
+	    <script src="js/components/Plane.js"></script>
+	    <script src="js/SceneManager.js"></script>
+	    <script src="js/main.js"></script>
+	    
+	</body>
+</html>
+
