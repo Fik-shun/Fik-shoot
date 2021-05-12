@@ -1,5 +1,6 @@
 # SPACE SHOOTER
 
+Play the game [here](https://fik-shun.github.io/Fik-shoot/)
 
 ### Key Bindings
 
