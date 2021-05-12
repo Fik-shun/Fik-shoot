@@ -10,7 +10,7 @@
 |    D     |     Plane: move right    |
 |    A     |     Plane: move left     |
 |  Space   |       Shoot Missile      |
-|  Ctrl    |           Boost          |
+|  Shift   |           Boost          |
 
 
 
